@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Bootstrap Admin Theme v3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Bootstrap -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<!-- styles -->
+<link href="css/styles.css" rel="stylesheet" />
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="login-bg">
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Logo -->
+					<div class="logo">
+						<h1>
+							<a href="/">OBP API demo app</a>
+						</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-content container">
+		<div class="row">
+
+			<div class="col-md-12">
+				<div class="content-box-large">
+					<div class="panel-heading">
+						<div class="panel-title">Error Page</div>
+					</div>
+					<div class="panel-body">
+
+						<!--  As we are using Thymeleaf, you might consider using
+	      ${#httpServletRequest.requestURL}. But that returns the path
+	      to this error page.  Hence we explicitly add the url to the
+	      Model in some of the example code. -->
+						<p th:if="${url}">
+							<b>Page:</b> <span th:text="${url}">Page URL</span>
+						</p>
+
+						<p th:if="${timestamp}" id='created'>
+							<b>Occurred:</b> <span th:text="${timestamp}">Timestamp</span>
+						</p>
+
+						<p th:if="${status}">
+							<b>Response Status:</b> <span th:text="${status}">status-code</span>
+							<span th:if="${error}" th:text="'('+${error}+')'">error
+								...</span>
+						</p>
+
+						<!--/* ${ex} is set by ourSimpleMappingExceptionResolver,
+	       ${exception} or ${message} are set internally by Spring Boot. */-->
+						<div
+							th:if="${ex} or ${exception} or (${message} and ${message.length() != 0})">
+							<b>Cause:</b> <span th:if="${ex}" th:text="${ex}">exception
+								...</span> <span th:if="${exception}" th:text="${exception}">exception
+								...</span> <span th:if="${message} and ${message.length() != 0}"
+								th:text="${message}">message ...</span>
+
+						</div>
+
+						<p
+							th:unless="${ex} or ${exception} or (${message} and ${message.length() != 0})">
+							Cause unknown (no exception details available)</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
