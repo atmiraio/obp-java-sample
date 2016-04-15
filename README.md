@@ -221,7 +221,7 @@ Cuando tengamos los datos finales los subiremos al repositorio para que podáis 
 ## Documentación y API Explorer
 
  - [Documentación de OBP](https://github.com/OpenBankProject/OBP-API/wiki/)
- - [API Explorer v2.0.0](https://apiexplorer*sandbox*.openbankproject.com/?version=2.0.0&list-all-banks=false&core=&psd2=&obwg=&ignoredefcat=)
+ - [API Explorer v2.0.0](https://apiexplorersandbox.openbankproject.com/?version=2.0.0&list-all-banks=false&core=&psd2=&obwg=&ignoredefcat=)
 
 
 
